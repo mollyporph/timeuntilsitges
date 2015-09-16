@@ -1,0 +1,14 @@
+body {
+	background: black;
+	color: white
+}
+#outer{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	
+}
+#timediv
+{
+	font-size: 40px;
+}
