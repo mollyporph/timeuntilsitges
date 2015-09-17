@@ -6,14 +6,38 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div id="outer">
+<div class="outer">
  <div id="timediv"></div>
  </div>
-
+ <div class="sleepdiv">
+<h2> But I need it in sleeps!</h2>
+<input type="checkbox" name="thursdaysleep" value="thursdaysleep">Do you sleep thursday night?<br>
+<input type="checkbox" name="fridaynap" value="fridaynap">Do you intend to take a quick nap on friday?<br>
+<input type="checkbox" name="commutersleep" value="commutersleep">Are you prone to spontanious busrelated sleeps?<br>
+<input type="checkbox" name="planesleep" value="planesleep">During sudden climb in posterior altitude by more than 100 feet, are you struck with extemporary hibernation?<br>
+<div id="sleepdiv"><h2>Time until sitges is <span id="sleeps"></span> sleep(s)</h2></div>
+</div>
 </body>
+
  <script type="text/javascript">
    $("#timediv").countdown("2015/09/18 18:00", function(event) {
      $(this).text(event.strftime('%-D days %-H hours, %-M minutes and %-S seconds left until Sitges!'));
    });
+   $(":checkbox").change(function(){
+     var sleepTime = 0.0;
+     if($(":checkbox[name='thursdaysleep']").is(':checked')){
+       sleepTime +=1;
+     }
+      if($(":checkbox[name='fridaynap']").is(':checked')){
+       sleepTime +=0.5;
+     }
+      if($(":checkbox[name='commutersleep']").is(':checked')){
+       sleepTime +=0.25;
+     }
+      if($(":checkbox[name='planesleep']").is(':checked')){
+       sleepTime +=0.65;
+     }
+     $("#sleeps").text(sleepTime.toString());
+   })
  </script>
 </html>
